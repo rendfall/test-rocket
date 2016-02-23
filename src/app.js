@@ -1,3 +1,7 @@
+import 'pixi';
+import 'p2';
+import 'phaser';
+
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(`It's alive!`);
+    console.log(Phaser);
 });
