@@ -20,14 +20,16 @@ class Player {
     }
 
     setControls(keys) {
-        this.cursors = this.game.input.keyboard.createCursorKeys();
-
         // Config keys if needed
         if (keys) {
             this.cursors.up = this.game.input.keyboard.addKey(Phaser.Keyboard[keys.up]);
             this.cursors.down = this.game.input.keyboard.addKey(Phaser.Keyboard[keys.down]);
             this.cursors.left = this.game.input.keyboard.addKey(Phaser.Keyboard[keys.left]);
             this.cursors.right = this.game.input.keyboard.addKey(Phaser.Keyboard[keys.right]);
+            this.cursors.fire = this.game.input.keyboard.addKey(Phaser.Keyboard[keys.fire]);
+        } else {
+            this.cursors = this.game.input.keyboard.createCursorKeys();
+            this.cursors.fire = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         }
     }
 
@@ -50,6 +52,10 @@ class Player {
 
         if (cursors.right.isDown) {
             this.sprite.body.x += this.speed;
+        }
+
+        if (cursors.fire.isDown) {
+            console.log('space!');
         }
     }
 }
